@@ -1,0 +1,48 @@
+import math
+
+class Shape:
+    def area(self):
+        """This method should be implemented by subclasses"""
+        pass
+
+class Circle(Shape):
+    def __init__(self, diameter):
+        self.diameter = diameter
+
+    def area(self):
+        r = self.diameter / 2
+        return round(math.pi * r ** 2, 2)
+
+class Square(Shape):
+    def __init__(self, length):
+        self.length = length
+
+    def area(self):
+        return self.length ** 2
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+class RightTriangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def area(self):
+        return (self.base * self.height) / 2
+
+# Test the program
+circle = Circle(10)
+square = Square(5)
+rectangle = Rectangle(4, 6)
+triangle = RightTriangle(3, 8)
+
+print("Circle area:", circle.area())
+print("Square area:", square.area())
+print("Rectangle area:", rectangle.area())
+print("Triangle area:", triangle.area())

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 — GEARBOX TRAINING</title>
+    <link href="maina.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">GEARBOX TRAINING</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="Week1.html">Week 1</a></li>
+                <li><a href="Week2.html" class="active">Week 2</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-layout">
+
+        <aside class="sidebar">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+
+            <h3>Weekly Assignments</h3>
+            <ul>
+                <li><a href="Week1.html">Week 1 — HTML & Links</a></li>
+                <li><a href="Week2.html" class="active">Week 2 — Python OOP</a></li>
+            </ul>
+
+            <h3>Links</h3>
+            <ul>
+                <li><a href="https://github.com/MainaMike" target="_blank">GitHub</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <h1>Week 2</h1>
+            <p class="subtitle">Object-Oriented Shape Area Calculator — Python</p>
+
+            <h2>Assignment</h2>
+            <p>
+                The assignment this week was to build a geometry calculator using Object-Oriented Programming in Python.
+                The program calculates the area of different shapes using classes and inheritance.
+            </p>
+            <p>Concepts practiced:</p>
+            <div class="tags">
+                <span class="tag">Classes</span>
+                <span class="tag">Inheritance</span>
+                <span class="tag">Polymorphism</span>
+                <span class="tag">Methods</span>
+            </div>
+
+            <h2>Approach</h2>
+            <p>
+                I created a base <code>Shape</code> class with an <code>area()</code> method,
+                then four subclasses that each inherit from it and implement their own
+                area calculation: <code>Circle</code>, <code>Square</code>,
+                <code>Rectangle</code>, and <code>RightTriangle</code>.
+            </p>
+
+            <h3>Shape Formulas</h3>
+            <table>
+                <tr><th>Shape</th><th>Parameters</th><th>Formula</th></tr>
+                <tr><td>Circle</td><td>diameter</td><td>&pi; &times; r&sup2; (r = diameter / 2)</td></tr>
+                <tr><td>Square</td><td>length</td><td>length&sup2;</td></tr>
+                <tr><td>Rectangle</td><td>length, width</td><td>length &times; width</td></tr>
+                <tr><td>Right Triangle</td><td>base, height</td><td>(base &times; height) / 2</td></tr>
+            </table>
+
+            <h2>Solution Code</h2>
+<pre><code>import math
+
+class Shape:
+    def area(self):
+        """This method should be implemented by subclasses"""
+        pass
+
+class Circle(Shape):
+    def __init__(self, diameter):
+        self.diameter = diameter
+
+    def area(self):
+        r = self.diameter / 2
+        return round(math.pi * r ** 2, 2)
+
+class Square(Shape):
+    def __init__(self, length):
+        self.length = length
+
+    def area(self):
+        return self.length ** 2
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+class RightTriangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def area(self):
+        return (self.base * self.height) / 2
+
+# Test the program
+circle = Circle(10)
+square = Square(5)
+rectangle = Rectangle(4, 6)
+triangle = RightTriangle(3, 8)
+
+print("Circle area:", circle.area())
+print("Square area:", square.area())
+print("Rectangle area:", rectangle.area())
+print("Triangle area:", triangle.area())</code></pre>
+
+            <h2>Output</h2>
+            <p>Running the program in VS Code terminal (Python 3.13):</p>
+            <img src="week2-output.png" alt="Terminal output showing Circle area: 78.54, Square area: 25, Rectangle area: 24, Triangle area: 12.0">
+
+            <h2>What I Learned</h2>
+            <p>
+                This assignment helped me understand how inheritance works in Python.
+                The base <code>Shape</code> class defines a common interface, and each
+                subclass provides its own implementation of <code>area()</code> &mdash; that's
+                polymorphism in action. Each shape object can be used the same way
+                (calling <code>.area()</code>) even though the internal calculation is different.
+            </p>
+
+        </main>
+    </div>
+
+    <footer>
+        Gearbox Training &mdash; 2026
+    </footer>
+
+</body>
+</html>
